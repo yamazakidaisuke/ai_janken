@@ -8,6 +8,10 @@
 - janken.js
 - /my_model/
 
+### janken（普通のJSじゃんけんテンプレート）
+- old_janken.html
+
+  
 ---
 
 ### モデル学習＆作成
