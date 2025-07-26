@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIジェスチャーじゃんけん</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #1a73e8;
+        }
+        #game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        #webcam-container {
+            width: 300px;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #ddd;
+        }
+        #status {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #555;
+            min-height: 30px; /* 高さを確保してレイアウトが崩れないようにする */
+            text-align: center;
+        }
+        #result-display {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            font-size: 5em;
+        }
+        .hand {
+            transform: scale(1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .hand.win {
+            transform: scale(1.3);
+            animation: bounce 0.5s;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: scale(1.3) rotate(0deg); }
+            50% { transform: scale(1.5) rotate(5deg); }
+        }
+        .result-text {
+            font-size: 0.4em;
+            font-weight: bold;
+        }
+        .win-text { color: #e91e63; }
+        .lose-text { color: #1e88e5; }
+        .draw-text { color: #888; }
+        #label-container {
+            /* デバッグ用に残しますが、通常は非表示にします */
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>AIジェスチャーじゃんけん</h1>
+        <div id="status">モデルを読み込んでいます...</div>
+        <div id="webcam-container"></div>
+        <div id="result-display">
+            <div id="player-hand" class="hand">👤</div>
+            <div id="result-text" class="result-text">VS</div>
+            <div id="computer-hand" class="hand">💻</div>
+        </div>
+        <div id="label-container"></div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script src="janken.js" defer></script>
+</body>
+</html>
