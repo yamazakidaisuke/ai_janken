@@ -1,5 +1,18 @@
-### Teachable Machine にアクセス
-teachablemachine.withgoogle.com
+## サンプルコード一式
+### demo（顔: 笑顔、怒り）
+- demo.html
+- /demo_model/
+
+### janken（手： 笑顔、怒り）
+- janken.html
+- janken.js
+- /my_model/
+
+---
+
+### モデル学習＆作成
+
+teachablemachine.withgoogle.com にアクセス👉「使ってみる」
 
 1. 画像プロジェクト を選択
 
